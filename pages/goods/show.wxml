@@ -1,0 +1,57 @@
+<!-- 商品详情页 -->
+<view class="section goods-show">
+    <view class="goods-swiper">
+        <swiper class="slide" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" duration="1000">
+            <block wx:for="{{goods.goods_slides}}" wx:key="{{index}}">
+                <swiper-item class="slide-item" item-id="{{index}}">
+                    <image src="{{item.slide_url}}" mode="widthFix" class="slide-image" data-id="{{item.id}}" bind:tap="previewImage" />
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <!-- end goods-swiper -->
+
+    <view class="goods-desp">
+        <view class="weui-cells">
+            <view class="weui-cell">
+                <view class="weui-cell_bd">
+                    <view class="title">{{goods.header}}</view>
+                    <view class="desp">{{goods.description}}</view>
+                    <view class="meta">{{goods.meta}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells select">
+            <view class="weui-cell__bd on-sale">
+                <text class="weui-cell__subtitle">促销</text>
+                <text class="weui-cell__strong">赠品</text>
+                <text class="weui-cell__card">赠米粉卡</text>
+            </view>
+            <navigator class="weui-cell weui-cell_access" hover-class="none" url="../selectGoods/selectGoods?id={{goods.id}}">
+                <view class="weui-cell__bd selected">
+                    <text class="weui-cell__subtitle">已选</text>
+                    <text >{{goods.header}} {{goods.default[0]}} {{goods.default[1]}}</text>
+                    <text class="weui_cell__num">×{{goods.default[2]}}</text>
+                </view>
+                <view class="weui-cell__ft  weui-cell__ft_in-access"></view>
+            </navigator>
+            <view class="weui-cell weui-cell_promise">
+                <view class="weui-cell__hd success">
+                    <image src="../../assets/icons/success.png" />
+                </view>
+                <text class="weui-cell__bd intro">7天无理由退货</text>
+                <view class="weui-cell__hd success">
+                    <image src="../../assets/icons/success.png" />
+                </view>
+                <text class="weui-cell__bd intro">15天质量问题换货</text>
+                <view class="weui-cell__hd success">
+                    <image src="../../assets/icons/success.png" />
+                </view>
+                <text class="weui-cell__bd intro">365天保修</text>
+            </view>
+        </view>
+    </view>
+    <view class="goods-intro">
+        
+    </view>
+</view>
